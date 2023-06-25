@@ -1,6 +1,12 @@
 declare module '@sequencemedia/express' {
   export function getRequestSocket(req: Request): object
   export function isRequestSocketEncrypted(req: Request): boolean
+  export function isRequestSecure(req: Request): boolean
+  export function getRequestQuery(req: Request): object
+  export function getRequestParams(req: Request): object
+  export function getRequestBaseUrl(req: Request): string | void
+  export function getRequestUrl(req: Request): string | void
+  export function getRequestOriginalUrl(req: Request): string | void
   export function getRequestHeaders(req: Request): object
   export function getRequestHeadersOrigin(req: Request): string | void
   export function getRequestHeadersConnection(req: Request): string | void
