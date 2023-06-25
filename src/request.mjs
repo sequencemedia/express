@@ -10,6 +10,30 @@ export function isRequestSocketEncrypted (req) {
   return encrypted
 }
 
+export function isRequestSecure ({ secure = false }) {
+  return secure
+}
+
+export function getRequestQuery ({ query = {} }) {
+  return query
+}
+
+export function getRequestParams ({ params = {} }) {
+  return params
+}
+
+export function getRequestBaseUrl ({ baseUrl }) {
+  return baseUrl
+}
+
+export function getRequestUrl ({ url }) {
+  return url
+}
+
+export function getRequestOriginalUrl ({ originalUrl }) {
+  return originalUrl
+}
+
 export function getRequestHeaders ({ headers = {} }) {
   return headers
 }

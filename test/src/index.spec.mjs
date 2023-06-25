@@ -5,6 +5,14 @@ import {
 import {
   getRequestSocket,
   isRequestSocketEncrypted,
+
+  isRequestSecure,
+  getRequestQuery,
+  getRequestParams,
+  getRequestBaseUrl,
+  getRequestUrl,
+  getRequestOriginalUrl,
+
   getRequestHeaders,
   getRequestHeadersOrigin,
   getRequestHeadersHost,
@@ -20,6 +28,18 @@ describe('@sequencemedia/express', () => {
   describe('`getRequestSocket`', () => it('is a function', () => expect(getRequestSocket).to.be.a('function')))
 
   describe('`isRequestSocketEncrypted`', () => it('is a function', () => expect(isRequestSocketEncrypted).to.be.a('function')))
+
+  describe('`isRequestSecure`', () => it('is a function', () => expect(isRequestSecure).to.be.a('function')))
+
+  describe('`getRequestQuery`', () => it('is a function', () => expect(getRequestQuery).to.be.a('function')))
+
+  describe('`getRequestParams`', () => it('is a function', () => expect(getRequestParams).to.be.a('function')))
+
+  describe('`getRequestBaseUrl`', () => it('is a function', () => expect(getRequestBaseUrl).to.be.a('function')))
+
+  describe('`getRequestUrl`', () => it('is a function', () => expect(getRequestUrl).to.be.a('function')))
+
+  describe('`getRequestOriginalUrl`', () => it('is a function', () => expect(getRequestOriginalUrl).to.be.a('function')))
 
   describe('`getRequestHeaders`', () => it('is a function', () => expect(getRequestHeaders).to.be.a('function')))
 
@@ -53,6 +73,48 @@ describe('@sequencemedia/express', () => {
     describe('`encrypted` is false', () => it('returns false', () => expect(isRequestSocketEncrypted({ socket: { encrypted: false } })).to.be.false))
 
     describe('`encrypted` is not defined', () => it('returns false', () => expect(isRequestSocketEncrypted({})).to.be.false))
+  })
+
+  describe('`isRequestSecure()`', () => {
+    describe('`secure` is true', () => it('returns true', () => expect(isRequestSecure({ secure: true })).to.be.true))
+
+    describe('`secure` is false', () => it('returns false', () => expect(isRequestSecure({ secure: false })).to.be.false))
+
+    describe('`secure` is not defined', () => it('returns false', () => expect(isRequestSecure({})).to.be.false))
+  })
+
+  describe('`getRequestQuery()`', () => {
+    const MOCK_QUERY = {}
+
+    describe('`query` is defined', () => it('returns an object', () => expect(getRequestQuery({ query: MOCK_QUERY })).to.equal(MOCK_QUERY)))
+
+    describe('`query` is not defined', () => it('returns an object', () => expect(getRequestQuery({})).to.eql({})))
+  })
+
+  describe('`getRequestParams()`', () => {
+    const MOCK_PARAMS = {}
+
+    describe('`params` is defined', () => it('returns an object', () => expect(getRequestParams({ params: MOCK_PARAMS })).to.equal(MOCK_PARAMS)))
+
+    describe('`params` is not defined', () => it('returns an object', () => expect(getRequestParams({})).to.eql({})))
+  })
+
+  describe('`getRequestBaseUrl()`', () => {
+    describe('`baseUrl` is defined', () => it('returns a string', () => expect(getRequestBaseUrl({ baseUrl: 'MOCK BASE URL' })).to.equal('MOCK BASE URL')))
+
+    describe('`baseUrl` is not defined', () => it('returns undefined', () => expect(getRequestBaseUrl({})).to.be.undefined))
+  })
+
+  describe('`getRequestUrl()`', () => {
+    describe('`url` is defined', () => it('returns a string', () => expect(getRequestUrl({ url: 'MOCK URL' })).to.equal('MOCK URL')))
+
+    describe('`url` is not defined', () => it('returns undefined', () => expect(getRequestUrl({})).to.be.undefined))
+  })
+
+  describe('`getRequestOriginalUrl()`', () => {
+    describe('`originalUrl` is defined', () => it('returns a string', () => expect(getRequestOriginalUrl({ originalUrl: 'MOCK ORIGINAL URL' })).to.equal('MOCK ORIGINAL URL')))
+
+    describe('`originalUrl` is not defined', () => it('returns undefined', () => expect(getRequestOriginalUrl({})).to.be.undefined))
   })
 
   describe('`getRequestHeaders()`', () => {
