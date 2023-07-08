@@ -45,6 +45,10 @@
     ".": {
       "import": "./src/index.mjs",
       "require": "./src/index.cjs"
+    },
+    "./request": {
+      "import": "./src/request.mjs",
+      "require": "./src/request.cjs"
     }
   }
 }
