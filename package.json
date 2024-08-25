@@ -1,6 +1,6 @@
 {
   "name": "@sequencemedia/express",
-  "version": "1.0.171",
+  "version": "1.0.172",
   "main": "./src/index.mjs",
   "type": "module",
   "types": "./express.d.ts",
